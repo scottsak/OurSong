@@ -1,7 +1,20 @@
 import React from "react";
+import Autocomplete from "./Autocomplete";
 
 function SongTitle(props) {
     console.log(props.todaysQuote)
+    const suggestions = [
+        "Alligator",
+        "Bask",
+        "Crocodilian",
+        "Death Roll",
+        "Eggs",
+        "Jaws",
+        "Reptile",
+        "Solitary",
+        "Tail",
+        "Wetlands"
+    ]
     // makes the hints anonymous 
     const MakeAnonymous = (item) => {
         let t = "";
@@ -19,10 +32,13 @@ function SongTitle(props) {
         }
         return t
     }
+
+    // let win = "won";
     return (
         <div>
+            
             {/* <h2 className="song-title">{props.todaysQuote[0].song.toLowerCase()}</h2> */}
-            <div>{props.guessesAmount > 1 || props.win === 'won' ? <h1 className="song-title">Release Date: {props.todaysQuote[0].song.toLowerCase()}</h1> : <h1 className='song-title'>{MakeAnonymous(props.todaysQuote[0].song.toLowerCase())}</h1>}</div>
+            <div className="title-section">{props.guessesAmount > 1 || props.win === 'won' ? <h1 className="song-title">{props.todaysQuote[0].song.toLowerCase()}</h1> : <Autocomplete suggestions={suggestions} />}</div>
         </div>
     )
 }

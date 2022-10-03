@@ -13,7 +13,7 @@ body {
 
 input:focus {
     outline: var(--main-color-theme) !important;
-    border: var(--main-color-theme);
+    border: 2px solid var(--main-color-theme) !important;
 }
 
 .game-title {
@@ -31,6 +31,27 @@ input:focus {
 .song-title {
     font-size: 2.5rem;
     margin: 0px;
+    color: var(--main-color-theme);
+}
+
+.title-section{
+    text-align: center;
+    width: 400px;
+    margin: 0px auto;
+}
+
+.guess-section{
+    height: 40px;
+    width: 400px;
+    font-size: 2rem;
+    text-align: center;
+    background-color: var(--background-color-main);
+    border: 2px solid var(--main-color-theme);
+    /* text-decoration-color: cyan; */
+    color: white;
+    caret-color: white;
+    padding: 8px 0px;
+    border-radius: 5px;
 }
 
 
@@ -41,9 +62,8 @@ input:focus {
     margin-right: 10px;
 }
 
-.input-word {
+/* .input-word {
     height: 1.5rem;
-    /* width: 100px; */
     display: inline-flex;
     font-size: 1.2rem;
     border: none;
@@ -54,8 +74,7 @@ input:focus {
 }
 
 .input-word:focus {
-    border-bottom: 2px solid white;
-}
+} */
 
 .lyrics-section {
     /* display: inline; */
@@ -70,6 +89,57 @@ input:focus {
 .lyric-words{
     display: inline-flex;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  background-color: var(--background-color-main);
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: 400px;
+  margin: 0px auto;
+  position: absolute;
+}
+
+.suggestions li {
+  padding: 0.5rem;
+  min-height: 30px;
+  font-size: 1rem;
+  line-height: 40px;
+
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: var(--main-color-theme);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+
+
 
 
 /* phone screens */
