@@ -1,8 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Pixelify from "./Pixelify";
 
 function AlbumCover(props){
     // console.log(props.todaysQuote);
+    const [blurImage, setBlurImage] = useState(150)
+
+    useEffect(() => {
+
+        if (props.win === 'lost' || props.win === 'won') {
+            setBlurImage(0);
+        }
+
+    });
 
     function getAlbumCover(){
         if(props.todaysQuote[0].album === "1989"){
@@ -32,6 +41,9 @@ function AlbumCover(props){
         else if(props.todaysQuote[0].album === "Taylor Swift"){
             return "../../taylor-album-covers/taylor-swift-album.jpeg";
         }
+        else{
+            return "";
+        }
     }
 
     return(
@@ -40,7 +52,7 @@ function AlbumCover(props){
         {/* public/taylor-album-covers/taylor-swift-album.jpeg */}
         <Pixelify
                 src={getAlbumCover()}
-                pixelSize={150}
+                pixelSize={blurImage}
                 width={500}
                 height={500}
             />

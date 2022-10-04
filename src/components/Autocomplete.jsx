@@ -1,104 +1,83 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
-class Autocomplete extends Component {
-  static propTypes = {
-    suggestions: PropTypes.instanceOf(Array)
-  };
+const Autocomplete = ({ suggestions, win, setWin, song }) => {
+    const [input, setInput] = useState("");
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    // const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
+    const [showSuggestions, setShowSuggestions] = useState(false);
 
-  static defaultProps = {
-    suggestions: []
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      // The suggestions that match the user's input
-      filteredSuggestions: [],
-      // Whether or not the suggestion list is shown
-      showSuggestions: false,
-      // What the user has entered
-      userInput: ""
-    };
-  }
-
-  onChange = e => {
-    const { suggestions } = this.props;
-    const userInput = e.currentTarget.value;
-
-    // Filter our suggestions that don't contain the user's input
-    const filteredSuggestions = suggestions.filter(
-      suggestion =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-    );
-
-    this.setState({
-      filteredSuggestions,
-      showSuggestions: true,
-      userInput: e.currentTarget.value
-    });
-  };
-
-  onClick = e => {
-    this.setState({
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: e.currentTarget.innerText
-    });
-  };
-
-  render() {
-    const {
-      onChange,
-      onClick,
-      onKeyDown,
-      state: {
-        filteredSuggestions,
-        showSuggestions,
-        userInput
-      }
-    } = this;
-
-    let suggestionsListComponent;
-
-    if (showSuggestions && userInput) {
-      if (filteredSuggestions.length) {
-        suggestionsListComponent = (
-          <ul class="suggestions">
-            {filteredSuggestions.map((suggestion, index) => {
-              let className;
-
-              return (
-                <li className={className} key={suggestion} onClick={onClick}>
-                  {suggestion}
-                </li>
-              );
-            })}
-          </ul>
-        );
-      } else {
-        suggestionsListComponent = (
-          <div class="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
-          </div>
-        );
-      }
+    const checkAns = (guess) => {
+        if (guess.toLowerCase() === song) {
+            setWin('won');
+        }
+        else {
+            setWin('lost');
+        }
     }
 
+    const onChange = (e) => {
+
+        // Filter our suggestions that don't contain the user's input
+        const filteredSuggestion = suggestions.filter(
+            suggestion =>
+                suggestion.toLowerCase().indexOf(input.toLowerCase()) > -1
+        );
+        console.log(filteredSuggestion)
+
+        setFilteredSuggestions(filteredSuggestion);
+        // Filter our suggestions that don't contain the user's input
+        setInput(e.target.value);
+        setShowSuggestions(true);
+    };
+
+    const onClick = (e, key) => {
+        setFilteredSuggestions([]);
+        setInput("");
+        checkAns(e.target.innerText);
+    };
+
+
+
+    const SuggestionsListComponent = () => {
+        return filteredSuggestions.length ? (
+            <ul className="suggestions">
+                {filteredSuggestions.map((suggestion, index) => {
+                    let className;
+
+                    return (
+                        <li className={className} key={suggestion} onClick={event => onClick(event, suggestion)}>
+                            {suggestion}
+                        </li>
+                    );
+                })}
+            </ul>
+        ) : (
+            <div className="no-suggestions">
+                <em>sorry no suggestions</em>
+            </div>
+        );
+    };
+
+
     return (
-      <Fragment>
-        <input
-          type="text"
-          className="guess-section"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          value={userInput}
-        />
-        {suggestionsListComponent}
-      </Fragment>
+        <>
+            {win === 'won' || win === 'lost' ? <div className="lossSpace"></div> : <input
+                placeholder={"Guess the song title"}
+                type="text"
+                onChange={onChange}
+                value={input}
+                className="guess-section"
+            />}
+
+            <div className="autocompleteWrapper">
+                <div className="suggestionsWrapper">
+                    {showSuggestions && input && <SuggestionsListComponent />}
+                </div>
+            </div>
+        </>
     );
-  }
 }
+
 
 export default Autocomplete;

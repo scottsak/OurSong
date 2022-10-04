@@ -43,7 +43,7 @@ input:focus {
 .guess-section{
     height: 40px;
     width: 400px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     background-color: var(--background-color-main);
     border: 2px solid var(--main-color-theme);
@@ -90,9 +90,6 @@ input:focus {
     display: inline-flex;
 }
 
-body {
-  font-family: sans-serif;
-}
 
 input {
   border: 1px solid #999;
@@ -144,8 +141,30 @@ input {
 
 /* phone screens */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+
+
     .pixel-album-image {
+        width: 90%;
+    }
+
+    .title-section{
         width: 100%;
+    }
+
+    .guess-section{
+        width: 90%;
+    }
+
+    .suggestions{
+        width: 85%;
+    }
+    .suggestionsWrapper {
+      width: 90%;
+    }
+  
+    .autocompleteWrapper {
+      width: 90%;
+      margin: 0 auto;
     }
 
     .lyrics-section{

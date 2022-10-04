@@ -13,6 +13,7 @@ function App() {
   const today = new Date();
   const savedQuote = [{dayCount : "", song: "", album:"", date:"", lyrics:""}];
   const [todaysQuote, setTodaysQuote] = useState(savedQuote);
+  const [win, setWin] = useState('waiting')
   // console.log(todaysQuote);
 
   if(todaysQuote[0].dayCount === ""){
@@ -47,9 +48,12 @@ function App() {
       <Header />
       <AlbumCover
         todaysQuote = {todaysQuote}
+        win = {win}
       />
       <SongTitle 
         todaysQuote = {todaysQuote}
+        win = {win}
+        setWin = {setWin}
       />
       <LyricSection 
         todaysQuote = {todaysQuote}
