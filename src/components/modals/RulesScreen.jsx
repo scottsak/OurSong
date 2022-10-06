@@ -37,8 +37,13 @@ const StatScreen = props => {
             2. Use the search bar to guess the song <br />
             3. You have 1 try to guess the song title<br />
             5. Have fun! <br />
+            <u>Album Border Key</u><br />
+            Red: Wrong<br />
+            Green: Correct<br />
+            Gray: Waiting
+            <br />
             <br/>
-            Used <a href="https://github.com/MitanshiKshatriya/taylor-swift-api">MitanshiKshatriya</a> for the quotes</p>
+            Special thanks to <a href="https://github.com/MitanshiKshatriya/taylor-swift-api">MitanshiKshatriya</a> for the quotes</p>
             </div>
         </div>
       </div>
