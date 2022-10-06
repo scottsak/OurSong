@@ -200,9 +200,9 @@ input {
         font-size: 1.5rem;
     }
 
-    .top-button-image{
+    .top-button-image {
         display: flex;
-    justify-content: center;
+        justify-content: center;
     }
 
     .header {
