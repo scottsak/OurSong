@@ -200,17 +200,19 @@ input {
         font-size: 1.5rem;
     }
     .top-button {
-        width: 60px;
-        height: 60px;
+        width: 45px;
+        height: 45px;
     }
 
     .top-button-image {
+        width: 10px;
         display: flex;
         justify-content: center;
     }
 
     .header {
         width: 90%;
+        height: 60px;
     }
 
     .pixel-album-image {
