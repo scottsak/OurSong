@@ -57,7 +57,7 @@ function App() {
 
 
   function getInfoforMovie() {
-    // Axios.get("https://reegle-server.herokuapp.com/get_movie_info", {
+    // Axios.get("https://swiftiegame.herokuapp.com/get_taylor_quote", {
     Axios.get("http://localhost:3001/get_taylor_quote", {
       params: {
         todaysDate: (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
