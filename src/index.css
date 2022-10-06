@@ -207,8 +207,6 @@ input {
     .top-button-image {
         height: 12px;
         width: 12px;
-        display: flex;
-        justify-content: center;
     }
 
     .header {
