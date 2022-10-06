@@ -199,6 +199,7 @@ input {
     h2 {
         font-size: 1.5rem;
     }
+
     .top-button {
         width: 50px;
         height: 50px;
@@ -212,6 +213,11 @@ input {
     .header {
         width: 90%;
         height: 70px;
+    }
+
+    .game-title {
+        bottom: 10%;
+        position: absolute;
     }
 
     .pixel-album-image {
