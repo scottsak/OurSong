@@ -1,18 +1,32 @@
 import React, { Component, Fragment, useState } from "react";
-import PropTypes from "prop-types";
 
-const Autocomplete = ({ suggestions, win, setWin, song }) => {
+const Autocomplete = ({ suggestions, win, setWin, song, gamesPlayed, setGamesPlayed }) => {
     const [input, setInput] = useState("");
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-    // const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
 
     const checkAns = (guess) => {
         if (guess.toLowerCase() === song) {
+            localStorage.setItem('win', 'won');
             setWin('won');
+            let tempWins = JSON.parse(localStorage.getItem('wins'));
+            if(!tempWins){
+              tempWins = 0;
+            }
+            localStorage.setItem('wins',  parseInt(tempWins)+1)
+            localStorage.setItem('gamesPlayed', parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))+1);
+            setGamesPlayed(gamesPlayed+1)
         }
         else {
+            localStorage.setItem('win', 'lost');
             setWin('lost');
+            let tempLosses = JSON.parse(localStorage.getItem('losses'));
+            if(!tempLosses){
+              tempLosses = 0;
+            }
+            localStorage.setItem('losses',  parseInt(tempLosses)+1)
+            localStorage.setItem('gamesPlayed', parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))+1);
+            setGamesPlayed(gamesPlayed+1)
         }
     }
 
@@ -23,10 +37,8 @@ const Autocomplete = ({ suggestions, win, setWin, song }) => {
             suggestion =>
                 suggestion.toLowerCase().indexOf(input.toLowerCase()) > -1
         );
-        console.log(filteredSuggestion)
 
         setFilteredSuggestions(filteredSuggestion);
-        // Filter our suggestions that don't contain the user's input
         setInput(e.target.value);
         setShowSuggestions(true);
     };

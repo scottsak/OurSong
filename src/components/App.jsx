@@ -10,16 +10,16 @@ import LyricSection from './LyricSection';
 
 function App() {
 
-    // gets the date information for starting information 
-    const today = new Date();
-    const todaysDate = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
-    const lastDayPlayed = localStorage.getItem('day');
-  
-    // checks last day played 
-    if (lastDayPlayed !== todaysDate) {
-      localStorage.setItem('day', todaysDate);
-      localStorage.setItem('win', 'waiting');
-    }
+  // gets the date information for starting information 
+  const today = new Date();
+  const todaysDate = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+  const lastDayPlayed = localStorage.getItem('day');
+
+  // checks last day played 
+  if (lastDayPlayed !== todaysDate) {
+    localStorage.setItem('day', todaysDate);
+    localStorage.setItem('win', 'waiting');
+  }
 
   const savedQuote = [{ dayCount: "", song: "", album: "", date: "", lyrics: "" }];
   const [todaysQuote, setTodaysQuote] = useState(savedQuote);
@@ -40,9 +40,18 @@ function App() {
 
   const [win, setWin] = useState(startWin);
 
+  let startLosses = JSON.parse(localStorage.getItem('losses'));
+  if (!startLosses) {
+    localStorage.setItem('losses', 0)
+  }
+
+  let startWins = JSON.parse(localStorage.getItem('wins'));
+  if (!startWins) {
+    localStorage.setItem('wins', 0)
+  }
+
   if (todaysQuote[0].dayCount === "") {
     getInfoforMovie();
-    console.log(todaysQuote);
   }
 
 
@@ -72,8 +81,6 @@ function App() {
       <AlbumCover
         todaysQuote={todaysQuote}
         win={win}
-        gamesPlayed={gamesPlayed}
-        setGamesPlayed={setGamesPlayed}
       />
 
       <div className='spacer'></div>
@@ -81,6 +88,8 @@ function App() {
         todaysQuote={todaysQuote}
         win={win}
         setWin={setWin}
+        gamesPlayed={gamesPlayed}
+        setGamesPlayed={setGamesPlayed}
       />
       <div className='spacer'></div>
       <LyricSection

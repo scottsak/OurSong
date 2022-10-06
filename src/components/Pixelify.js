@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 
 class Pixelify extends Component {
   canvas = null;
+  border = null;
   componentDidMount() {
     this.pixelify(this.props);
   }
   componentDidUpdate() {
     this.pixelify(this.props);
   }
-  pixelify({ src, width, height, pixelSize, centered, fillTransparencyColor }) {
+  pixelify({ src, width, height, pixelSize, centered, fillTransparencyColor, correct }) {
     pixelSize = parseInt(pixelSize, 10);
+    this.border = correct;
     // create img that will be later painted into the canvas
     let img = new Image();
     img.crossOrigin = "anonymous";
@@ -71,7 +73,7 @@ class Pixelify extends Component {
   render() {
     return (
       <canvas
-        className="pixel-album-image"
+        className= {this.border}
         ref={canvas => {
           this.canvas = canvas;
         }}
@@ -86,7 +88,8 @@ Pixelify.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   centered: PropTypes.bool,
-  fillTransparencyColor: PropTypes.string
+  fillTransparencyColor: PropTypes.string,
+  correct: PropTypes.string
 };
 
 Pixelify.defaultProps = {
