@@ -29,15 +29,15 @@ const StatScreen = props => {
           <div className="modal-header">
             <h2 className="modal-title">STATS</h2>
             <button onClick={props.onClose} className="button modal-button">
-              x
+              <span className="close-button">x</span>
             </button>
           </div>
           <div className="modal-body">
             <h4>Games Played: {localStorage.getItem('gamesPlayed')}</h4>
             <h4>Wins: {localStorage.getItem('wins')}</h4>
             <h4>Losses: {localStorage.getItem('losses')}</h4>
-            <h4>Win %: {isNaN(parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100) ? "No Data" : (parseInt(JSON.parse(localStorage.getItem('wins')))/parseInt(JSON.parse(localStorage.getItem('gamesPlayed')))*100).toFixed(2) + "%"}</h4>
-            </div>
+            <h4>Win %: {isNaN(parseInt(JSON.parse(localStorage.getItem('wins'))) / parseInt(JSON.parse(localStorage.getItem('gamesPlayed'))) * 100) ? "No Data" : (parseInt(JSON.parse(localStorage.getItem('wins'))) / parseInt(JSON.parse(localStorage.getItem('gamesPlayed'))) * 100).toFixed(2) + "%"}</h4>
+          </div>
         </div>
       </div>
     </CSSTransition>,

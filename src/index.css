@@ -199,6 +199,10 @@ input {
     h2 {
         font-size: 1.5rem;
     }
+    .top-button {
+        width: 60px;
+        height: 60px;
+    }
 
     .top-button-image {
         display: flex;

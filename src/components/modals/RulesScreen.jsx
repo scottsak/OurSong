@@ -29,7 +29,8 @@ const StatScreen = props => {
           <div className="modal-header">
             <h2 className="modal-title">RULES</h2>
             <button onClick={props.onClose} className="button modal-button">
-              x
+              <span className="close-button">x</span>
+              
             </button>
           </div>
           <div className="modal-body">
