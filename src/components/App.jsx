@@ -50,11 +50,14 @@ function App() {
         todaysQuote = {todaysQuote}
         win = {win}
       />
+      
+      <div className='spacer'></div>
       <SongTitle 
         todaysQuote = {todaysQuote}
         win = {win}
         setWin = {setWin}
       />
+      <div className='spacer'></div>
       <LyricSection 
         todaysQuote = {todaysQuote}
       />

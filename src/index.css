@@ -11,6 +11,10 @@ body {
 
 }
 
+.spacer{
+    height: 20px;
+}
+
 input:focus {
     outline: var(--main-color-theme) !important;
     border: 2px solid var(--main-color-theme) !important;
@@ -19,6 +23,51 @@ input:focus {
 .game-title {
     color: var(--main-color-theme);
 }
+
+.header {
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    margin: 0px auto;
+  }
+
+  .game-title {
+    font-size: 45px;
+    display: flex;
+    margin: 0px auto;
+  }
+
+  .right {
+    top: 10%;
+    right: 0px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+  }
+
+  .right-top-div {
+    display: flex;
+  }
+  .top-button-image {
+    width: 15px;
+  }
+
+  .top-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid var(--main-color-theme);
+  }
+
+  .btn-space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+  
 
 
 
@@ -49,7 +98,7 @@ input:focus {
     border: 2px solid var(--main-color-theme);
     /* text-decoration-color: cyan; */
     color: white;
-    caret-color: white;
+    caret-color: transparent;
     padding: 8px 0px;
     border-radius: 5px;
 }
@@ -80,10 +129,6 @@ input:focus {
     /* display: inline; */
     margin: 0 auto;
     width: 500px;
-}
-
-.lyric-section{
-
 }
 
 .lyric-words{
@@ -142,6 +187,12 @@ input {
 /* phone screens */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
 
+    h2{
+        font-size: 1.5rem;
+    }
+    .header{
+        width: 90%;
+    }
 
     .pixel-album-image {
         width: 90%;
@@ -156,7 +207,7 @@ input {
     }
 
     .suggestions{
-        width: 85%;
+        width: 90%;
     }
     .suggestionsWrapper {
       width: 90%;
@@ -168,6 +219,6 @@ input {
     }
 
     .lyrics-section{
-        width: 100%;
+        width: 90%;
     }
 }
