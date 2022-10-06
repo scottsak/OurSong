@@ -200,6 +200,10 @@ input {
         font-size: 1.5rem;
     }
 
+    .top-button-image{
+        width: 10px;
+    }
+
     .header {
         width: 90%;
     }
