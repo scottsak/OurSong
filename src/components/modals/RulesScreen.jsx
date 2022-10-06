@@ -33,11 +33,12 @@ const StatScreen = props => {
             </button>
           </div>
           <div className="modal-body">
-            <p>1. Look at the hints provided and try and piece together what movie could fit all of these clues <br/>
-            2. Use the search bar to guess a movie <br />
-            3. You have 6 tries to guess the movie<br />
-            4. With each guess you will get a new hint and the image will be more clear<br />
-            5. Have fun!</p>
+            <p>1. Use the quote and the blurry album cover to figure out the name of the Taylor Swift song<br/>
+            2. Use the search bar to guess the song <br />
+            3. You have 1 try to guess the song title<br />
+            5. Have fun! <br />
+            <br/>
+            Used <a href="https://github.com/MitanshiKshatriya/taylor-swift-api">MitanshiKshatriya</a> for the quotes</p>
             </div>
         </div>
       </div>

@@ -14,6 +14,10 @@
     font-family: 'Poppins', sans-serif;
 
   }
+
+  a{
+    color: #F44A4B;
+  }
   
   .modal.enter-done {
     opacity: 1;
@@ -25,7 +29,7 @@
     font-size: 25px;
     height: 40px;
     background-color: #222A36;
-    color: white;
+    color: #F44A4B;
     line-height: 20px;
     border-radius: 50%;
     border: 2px solid #F44A4B;
