@@ -20,6 +20,10 @@ input:focus {
     border: 2px solid var(--main-color-theme) !important;
 }
 
+input:focus::placeholder {
+    color: transparent;
+  }
+
 .game-title {
     color: var(--main-color-theme);
 }
@@ -101,13 +105,13 @@ input:focus {
 .guess-section {
     height: 40px;
     width: 400px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
     background-color: var(--background-color-main);
     border: 2px solid var(--main-color-theme);
     /* text-decoration-color: cyan; */
     color: white;
-    caret-color: transparent;
+    /* caret-color: transparent; */
     padding: 8px 0px;
     border-radius: 5px;
 }
