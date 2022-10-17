@@ -121,7 +121,23 @@ const taylorSongs = [
     "epiphany",
     "betty",
     "peace",
-    "hoax"
+    "hoax",
+    "State of Grace",
+    "Red",
+    "Treacherous",
+    "I Knew You Were Trouble",
+    "All Too Well",
+    "22",
+    "I Almost Do",
+    "We Are Never Ever Getting Back Together",
+    "Stay Stay Stay",
+    "The Last Time",
+    "Holy Ground",
+    "Sad Beautiful Tragic",
+    "The Lucky One",
+    "Everything Has Changed",
+    "Starlight",
+    "Begin Again",
 ]
 
 export default taylorSongs;
