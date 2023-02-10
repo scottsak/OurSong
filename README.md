@@ -8,7 +8,7 @@ I made this game for my friends who are in love with Taylor Swift, but it is rea
 
 Look at the clues given and guess the song that matches the album cover and lyrics!
 
-link: https://swiftiequotes.netlify.app/
+link: https://swiftiequotes.netlify.app/ *no longer works due to heroku charging for use of service and I am too poor to pay for them*
 
 #### credits
 
